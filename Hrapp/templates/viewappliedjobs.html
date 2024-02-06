@@ -1,0 +1,23 @@
+{%extends 'jobseeker/base.html'%}
+{%load static%}
+{%block bodyblock%}
+
+{%for i in data%}
+
+<div class="card" style="width: 18rem;">
+  <img src="{{i.jobs.poster.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{i.jobs.title}}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{i.jobs.company_name}}</li>
+    <li class="list-group-item">{{i.jobs.salary}}</li>
+  </ul>
+  <div class="card-body">
+    <a href="{%url 'delete_job' i.id %}" class="card-link">Delete</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+{%endfor%}
+
+{%endblock%}
